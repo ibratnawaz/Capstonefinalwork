@@ -10,15 +10,15 @@ model = joblib.load(open('model.pkl', 'rb'))
 cv = joblib.load(open('cv.pkl', 'rb'))
  
 myDb = mysql.connector.connect(
-     host='localhost',
-     user='root',
-     password='',
-     database='capstone'
+    #  host='localhost',
+    #  user='root',
+    #  password='',
+    #  database='capstone'
 
-    #host='https://auth-db536.hstgr.io/',
-    #user='u622668951_fortcoffee',
-    #password='Fortcoffee@123',
-    #database='u622668951_fortcoffee'
+    host='https://auth-db536.hstgr.io/',
+    user='u622668951_fortcoffee',
+    password='Fortcoffee@123',
+    database='u622668951_fortcoffee'
 )
 
 if (myDb.is_connected()):
@@ -129,4 +129,4 @@ def logout():
     return render_template('index.html', login=False  , myresult=myresult)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False, host='0.0.0.0')
